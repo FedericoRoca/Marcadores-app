@@ -1,0 +1,27 @@
+{
+  "name": "marcadores-app",
+  "version": "1.0.0",
+  "description": "Gestion de marcadores",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FedericoRoca/Marcadores-app.git"
+  },
+  "keywords": [
+    "Electron",
+    "Escritorio",
+    "Aplicacion"
+  ],
+  "author": "Federico Roca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FedericoRoca/Marcadores-app/issues"
+  },
+  "homepage": "https://github.com/FedericoRoca/Marcadores-app#readme",
+  "devDependencies": {
+    "electron": "^12.0.5"
+  }
+}
