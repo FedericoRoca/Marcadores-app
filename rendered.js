@@ -20,7 +20,16 @@ class Marcadores {
       "submit",
       this.crearMarcador.bind(this)
     );
+    this.eliminarMarcadores.addEventListener(
+      "click",
+      this.eliminarMarcadoresCreados.bind(this)
+    );
   }
+  eliminarMarcadoresCreados() {
+    localStorage.clear();
+    this.marcadores.innerHTML = "";
+  }
+
   //Function.prototype.bind() es un método del objeto Function creado para manipular el valor contextual de this. Cuando se ejecuta sobre una función dada, creamos una nueva función que nos permite manipular tanto su valor this como los parámetros que espera.
   crearMarcador(evento) {
     evento.preventDefault();
@@ -29,7 +38,7 @@ class Marcadores {
       .then((respuesta) => respuesta.text())
       .then(this.extraerContenido.bind(this))
       .then(this.encontrarTituloPagina)
-      .then(this.almacenarMarcador)
+      .then((titulo) => this.almacenarMarcador(url, titulo))
       .then(this.limpiarFormulario.bind(this))
       .then(this.visualizarMarcadores.bind(this))
       .catch((error) => this.reportarError(error, url));
@@ -50,13 +59,13 @@ class Marcadores {
     return Object.keys(localStorage).map((k) => JSON.parse(localStorage.getItem(k)));
   }
   generarHtmlMarcador(marcador) {
-    return `<div class='enlace'><h3>${"Titulo"}</h3>
+    return `<div class='enlace'><h3>${marcador.titulo}</h3>
     <p><a href='${marcador.url}'>${marcador.url}</a></p></div>`;
   }
   visualizarMarcadores() {
     let marcadores = this.obtenerMarcadores();
-    let html = marcadores.map(this.generarHtmlMarcador()).join("");
-    this.mensajeError.innerHTML = html;
+    let html = marcadores.map(this.generarHtmlMarcador).join("");
+    this.marcadores.innerHTML = html;
   }
   reportarError(error, url) {
     this.mensajeError.innerHTML = `Ocurrio un error al intentar acceder a ${url}: ${error}`;
