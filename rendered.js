@@ -1,3 +1,6 @@
+//modulo importado para que los enlaces se abran en el navegador
+const { shell } = require("electron");
+
 class Marcadores {
   constructor() {
     this.mensajeError = document.querySelector(".mensaje-error");
@@ -24,6 +27,14 @@ class Marcadores {
       "click",
       this.eliminarMarcadoresCreados.bind(this)
     );
+    this.marcadores.addEventListener("click", this.abirEnlaceEnNavegador.bind(this));
+  }
+  abirEnlaceEnNavegador(evento) {
+    if (evento.target.href) {
+      //para que no se abra en la app
+      evento.preventDefault();
+      shell.openExternal(evento.target.href);
+    }
   }
   eliminarMarcadoresCreados() {
     localStorage.clear();
@@ -75,4 +86,5 @@ class Marcadores {
   }
 }
 
-new Marcadores();
+let marcadores = new Marcadores();
+marcadores.visualizarMarcadores();
