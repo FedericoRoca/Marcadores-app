@@ -70,8 +70,8 @@ class Marcadores {
     return Object.keys(localStorage).map((k) => JSON.parse(localStorage.getItem(k)));
   }
   generarHtmlMarcador(marcador) {
-    return `<div class='enlace'><h3>${marcador.titulo}</h3>
-    <p><a href='${marcador.url}'>${marcador.url}</a></p></div>`;
+    return `<div class='enlace mx-sm-3 mt-2 mb-2 '><h3>${marcador.titulo}</h3>
+    <p class="mx-sm-3 mt-2 mb-2 " >Url: <a href='${marcador.url}'>${marcador.url}</a></p></div>`;
   }
   visualizarMarcadores() {
     let marcadores = this.obtenerMarcadores();
@@ -79,7 +79,7 @@ class Marcadores {
     this.marcadores.innerHTML = html;
   }
   reportarError(error, url) {
-    this.mensajeError.innerHTML = `Ocurrio un error al intentar acceder a ${url}: ${error}`;
+    this.mensajeError.innerHTML = ` <div class="alert alert-warning" role="alert">Ocurrio un error al intentar acceder a ${url}: ${error}</div>`;
     setTimeout(() => {
       this.mensajeError.innerText = null;
     }, 5000);

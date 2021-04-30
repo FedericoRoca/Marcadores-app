@@ -18,17 +18,33 @@
     <title>Marcadores</title>
   </head>
   <body>
-    <h1 class="text-center">Marcadores</h1>
-    <div class="alert alert-warning mensaje-error" role="alert"></div>
+    <h1 class="text-center">Marcadores diarios:</h1>
+    <hr />
+    <div class="mensaje-error"></div>
     <section class="creacion-marcador">
-      <form action="" class="creacion-marcador-formulario">
-        <input type="url" class="creacion-marcador-url" name="" id="" placeholder="url" />
-        <input type="submit" value="Crear" class="creacion-marcador-boton" disabled />
+      <form action="" class="creacion-marcador-formulario form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <input
+            type="url"
+            class="creacion-marcador-url form-control"
+            name=""
+            id=""
+            placeholder="url"
+          />
+        </div>
+        <input
+          type="submit"
+          value="Crear"
+          class="creacion-marcador-boton btn btn-primary mb-2"
+          disabled
+        />
       </form>
     </section>
     <section class="marcadores"></section>
     <section id="controles">
-      <button class="remover-marcadores">Eliminar Marcadores</button>
+      <button class="remover-marcadores mx-sm-3 mt-2 mb-2 btn btn-outline-danger">
+        Eliminar Marcadores
+      </button>
     </section>
     <script src="./rendered.js"></script>
   </body>

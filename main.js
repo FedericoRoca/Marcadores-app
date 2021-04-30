@@ -11,3 +11,13 @@ function crearVentenaPrincipal() {
 }
 //cuando este lista la aplicacion se crea la ventana
 app.whenReady().then(crearVentenaPrincipal);
+app.on("window-all-closed", function () {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
+app.on("activate", function () {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    crearVentenaPrincipal();
+  }
+});

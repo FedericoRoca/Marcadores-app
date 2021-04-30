@@ -4,7 +4,8 @@
   "description": "Gestion de marcadores",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,10 @@
   },
   "homepage": "https://github.com/FedericoRoca/Marcadores-app#readme",
   "devDependencies": {
-    "electron": "^12.0.5"
+    "electron": "^12.0.5",
+    "electron-builder": "^22.10.5"
+  },
+  "dependencies": {
+    "electron-packager": "^15.2.0"
   }
 }
